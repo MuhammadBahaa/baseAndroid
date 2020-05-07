@@ -84,6 +84,9 @@ abstract class BaseMultiNavActivity : AlertDisconnectionActivity(), INav {
             }
         } else {
             multiStacks.setSelectedTabIndex(index)
+            if (enableClearTabOnClick) {
+                multiStacks.clearStack()
+            }
             onNavTabSelected(index)
         }
     }

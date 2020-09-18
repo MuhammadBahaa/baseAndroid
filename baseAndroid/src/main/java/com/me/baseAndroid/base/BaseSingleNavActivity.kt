@@ -9,26 +9,32 @@
 package com.me.baseAndroid.base
 
 import android.os.Bundle
-import androidx.annotation.CallSuper
 import com.me.baseAndroid.R
+import org.abanoubmilad.labyrinth.BuilderSingle
 import org.abanoubmilad.labyrinth.INavHolder
 import org.abanoubmilad.labyrinth.LabyrinthSingle
 
 open class BaseSingleNavActivity : AlertDisconnectionActivity(), INavHolder {
-    override val layoutId = R.layout.base_arch_module_single_nav_activity
+    override val layoutId = R.layout.labyrinth_layout_single_nav_activity
 
     lateinit var labyrinth: LabyrinthSingle
     override fun getINav() = labyrinth
 
-    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        labyrinth = LabyrinthSingle.Builder(
+        labyrinth = BuilderSingle(
+            viewModelStoreOwner = this,
+            lifecycleOwner = this,
             fragmentManager = supportFragmentManager,
 
-            fragmentContainerId = R.id.nav_host_container
-        ).build()
+            fragmentContainerId = R.id.labyrinth_nav_host_container
+        ).apply {
+
+            saveStateEnabled = true
+            retainNonActiveFragmentsEnabled = false
+
+        }.build()
     }
 
 

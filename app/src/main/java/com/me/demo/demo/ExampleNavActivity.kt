@@ -12,6 +12,7 @@ import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import com.me.demo.R
 import com.me.demo.demo.tab0.About1
+import org.abanoubmilad.labyrinth.BuilderSingle
 import org.abanoubmilad.labyrinth.INavHolder
 import org.abanoubmilad.labyrinth.LabyrinthSingle
 
@@ -24,7 +25,9 @@ class ExampleNavActivity : FragmentActivity(), INavHolder {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.example_single_nav_activity)
 
-        labyrinth = LabyrinthSingle.Builder(
+        labyrinth = BuilderSingle(
+            viewModelStoreOwner = this,
+            lifecycleOwner = this,
             fragmentManager = supportFragmentManager,
 
             fragmentContainerId = R.id.nav_host_container

@@ -12,14 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.me.demo.StartActivity">
+
+
+        <activity android:name=".demo.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivityMultiFull" />
+        <activity android:name=".demo.ExampleMultiNavActivity" />
+        <activity android:name=".demo.ExampleNavActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -30,7 +33,5 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path" />
         </provider>
-
     </application>
-
 </manifest>

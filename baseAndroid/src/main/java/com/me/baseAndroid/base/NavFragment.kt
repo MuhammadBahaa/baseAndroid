@@ -1,7 +1,6 @@
 package com.me.baseAndroid.base
 
 import android.content.Context
-import android.os.Bundle
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.CallSuper
-import androidx.fragment.app.Fragment
 import com.me.baseAndroid.R
 import com.me.baseAndroid.view.observe
 import org.abanoubmilad.router.listenToRouter
@@ -23,18 +21,12 @@ import org.abanoubmilad.router.listenToRouter
  *  * Last modified 5/1/20 11:05 PM
  *
  */
-abstract class BaseFragment : Fragment(), ITextWatcher {
+abstract class NavFragment : org.abanoubmilad.labyrinth.NavFragment(), ITextWatcher {
     override val watchMap: HashMap<EditText, TextWatcher> by lazy {
         hashMapOf<EditText, TextWatcher>()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = buildRootView(inflater, container)
-
-    open fun buildRootView(
+    override fun buildRootView(
         inflater: LayoutInflater,
         container: ViewGroup?
     ): View {

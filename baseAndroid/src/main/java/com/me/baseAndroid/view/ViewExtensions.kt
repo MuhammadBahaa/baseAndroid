@@ -1,11 +1,9 @@
 package com.me.baseAndroid.view
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.net.Uri
 import android.os.Build
 import android.text.SpannableString
 import android.text.Spanned
@@ -30,10 +28,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.me.baseAndroid.R
-import com.me.baseAndroid.base.BaseViewModel
 
 
 /*
@@ -43,19 +39,6 @@ import com.me.baseAndroid.base.BaseViewModel
  *  * Last modified 5/1/20 11:05 PM
  *
  */
-fun <V : BaseViewModel> Fragment.getPrivateViewModel(clazz: Class<V>): V {
-    return ViewModelProvider(this).get(clazz)
-}
-
-fun <V : BaseViewModel> Fragment.getSharedViewModel(clazz: Class<V>): V {
-    return activity?.getViewModel(clazz) ?: throw RuntimeException("Error initializing ViewModel")
-}
-
-fun <V : BaseViewModel> FragmentActivity.getViewModel(clazz: Class<V>): V {
-    return this.run {
-        ViewModelProvider(this).get(clazz)
-    }
-}
 
 fun <T> FragmentActivity.observe(liveData: LiveData<T>, callback: (T) -> Unit) {
     liveData.observe(this, Observer(callback))
@@ -201,15 +184,6 @@ fun FragmentActivity?.makeStatusBarFullyTransperant() {
         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
     )
-}
-
-fun FragmentActivity?.startUrlIntent(url: String?) {
-    try {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        this?.startActivity(intent)
-    } catch (e: Exception) {
-    }
-
 }
 
 fun FragmentActivity.showDialog(

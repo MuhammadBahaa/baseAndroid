@@ -1,6 +1,7 @@
 package com.me.baseAndroid.base
 
 import android.os.Bundle
+import androidx.annotation.CallSuper
 import com.me.baseAndroid.R
 import com.me.baseAndroid.view.isInternetAvailable
 import com.novoda.merlin.Merlin
@@ -16,12 +17,14 @@ abstract class ConnectifyActivity : BaseActivity() {
 
     private lateinit var merlin: Merlin
 
+    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         merlin = Merlin.Builder().withConnectableCallbacks()
             .withDisconnectableCallbacks().build(this)
     }
 
+    @CallSuper
     override fun onResume() {
         super.onResume()
         if (!isInternetAvailable()) {
@@ -44,6 +47,7 @@ abstract class ConnectifyActivity : BaseActivity() {
     abstract fun onDisconnected()
     abstract fun onConnected()
 
+    @CallSuper
     override fun onPause() {
         merlin.unbind()
         super.onPause()

@@ -3,7 +3,7 @@ Base android
 </h1>
 
 <h2 align="center">
-A ready to use MVVM arch and network layer with common utils</h2>
+A ready to use MVVM arch, router, network layer and common utils</h2>
 
 MIT License
 
@@ -33,7 +33,7 @@ Add to app level `build.gradle`
 ```Groovy
     dependencies {
 
-        implementation 'com.github.abanoubmilad:baseandroid:1.79'
+        implementation 'com.github.abanoubmilad:baseandroid:1.82rc'
         
     }
 ```

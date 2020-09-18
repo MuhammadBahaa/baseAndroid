@@ -40,7 +40,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:text="About 2\n state saved"
+            android:text="About 1"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
@@ -69,21 +69,7 @@
             android:layout_marginEnd="80dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_button"
-            android:text="go next (About 3)"
-            android:textColor="@color/colorAccent"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/dismiss_navigate_next"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginEnd="80dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_button"
-            android:text="dismiss then go to (About 3)"
+            android:text="go next (About 2)"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -149,6 +135,36 @@
 
 
         <Button
+            android:id="@+id/tab_1_and_navigate_clear"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button"
+            android:padding="20dp"
+            android:text="go to tab 1, cleat top and push About1"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/tab_1_and_navigate"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_button"
+            android:padding="20dp"
+            android:text="go to tab 1 and push About1"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/dismiss"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
@@ -177,6 +193,5 @@
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 </ScrollView>

@@ -8,9 +8,11 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.me.baseAndroid.R
+import com.me.baseAndroid.view.observe
+import org.abanoubmilad.router.listenToRouter
 import org.aviran.cookiebar2.CookieBar
 
 /*
@@ -25,6 +27,7 @@ abstract class BaseActivity : AppCompatActivity(), ITextWatcher {
         hashMapOf<EditText, TextWatcher>()
     }
 
+    @CallSuper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutId)
@@ -106,13 +109,18 @@ abstract class BaseActivity : AppCompatActivity(), ITextWatcher {
     }
 
     open fun listenToMessagesOf(viewModel: BaseViewModel) {
-        viewModel.info.observe(this, Observer {
+        observe(viewModel.info) {
             showCookieBar(it)
-        })
+        }
     }
 
+    open fun listenToRouterOf(viewModel: BaseViewModel) {
+        listenToRouter(viewModel.router)
+    }
+
+    @CallSuper
     override fun onDestroy() {
-        super.onDestroy()
         disposeITextWatcher()
+        super.onDestroy()
     }
 }
